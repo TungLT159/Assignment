@@ -35,15 +35,17 @@
     left: 15px;
 }
 
-#search {
+
+/* #search {
     padding: 6px 40px;
-}
+} */
 
 .m--24 {
     margin: -24px;
 }
+
 @media only screen and (max-width: 768px) {
-    .m--24{
+    .m--24 {
         margin: 0;
     }
 }

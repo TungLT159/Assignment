@@ -16,7 +16,7 @@ export const DEPARTMENTS = [{
     {
         id: "Dept04",
         name: "IT",
-        numberOfStaff: 1
+        numberOfStaff: 2
     },
     {
         id: "Dept05",
