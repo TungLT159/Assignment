@@ -16,6 +16,23 @@ class PayRoll extends Component {
 
 
     render() {
+        const localStoragePayroll = (JSON.parse(localStorage.getItem('newStaff')) ? JSON.parse(localStorage.getItem('newStaff')) : [])
+        const renderLocalStoragePayrol = localStoragePayroll.map(staff => {
+            const salary = Math.trunc(staff.salaryScale * 3000000 + staff.overTime * 200000)
+            return (
+                <div className="col-lg-4 col-md-6 col-sm-12">
+                    <Card className="mb-4 p-2">
+                        <CardTitle>{staff.name}</CardTitle>
+                        <CardBody>
+                            <CardText>Mã nhân viên: {staff.id}</CardText>
+                            <CardText>Hệ số lương: {staff.salaryScale}</CardText>
+                            <CardText>Số ngày làm thêm: {staff.overTime}</CardText>
+                            <CardText>Lương: {salary}</CardText>
+                        </CardBody>
+                    </Card>
+                </div>
+            )
+        })
         const payRoll = this.props.staffs.map((staff) =>{
             const salary = Math.trunc(staff.salaryScale * 3000000 + staff.overTime * 200000)
             return (
@@ -32,6 +49,7 @@ class PayRoll extends Component {
                 </div>
             )
         })
+
 
         return (
             <div className="container bg-custom">
@@ -59,7 +77,7 @@ class PayRoll extends Component {
                     </div>
                 </div>
                 <div className="row mt-3">
-                    {payRoll}
+                    {localStoragePayroll.length === 0 ? payRoll : renderLocalStoragePayrol}
                 </div>
             </div>
         )
