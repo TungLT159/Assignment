@@ -6,7 +6,11 @@
 }
 
 .card:hover {
-    transform: scale(1.1)
+    transform: scale(1.1);
+}
+
+.card:hover .btn-custom {
+    visibility: visible;
 }
 
 .bg-custom {
@@ -48,4 +52,9 @@
     .m--24 {
         margin: 0;
     }
+}
+
+.btn-custom {
+    visibility: hidden;
+    transition: .3s
 }
